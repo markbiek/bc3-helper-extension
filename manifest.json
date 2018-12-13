@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Basecamp 3 Helper",
+  "version": "0.1",
+
+  "description": "Helpful tweaks for Basecamp 3",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://3.basecamp.com/*"],
+      "js": ["bundle.js"]
+    }
+  ]
+
+}
