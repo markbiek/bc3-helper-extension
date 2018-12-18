@@ -1,0 +1,32 @@
+.schedule-day__events {
+    .metadata {
+        border-top: 1px solid #ccc;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        &:first-child {
+            border-top: none;
+            margin-top: none;
+            padding-top: none;
+        }
+
+        a {
+            font-size: 14px;
+            font-weight: bold;
+
+            &:last-child {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+li.todo {
+    .checkbox {
+        a {
+            font-size: 14px;
+        }
+    }
+}

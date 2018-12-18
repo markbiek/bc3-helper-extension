@@ -1,26 +1,25 @@
 import jQuery from 'jquery';
 
-const $ = jQuery;
+(function ($) {
+    $(document).ready(() => {
+        // Reorder project/todo-list titles
+        $('.schedule-day__events .metadata').each((idx, item) => {
+            let first = $(item).children('a:first-child');
+            let last = $(item).children('a:last-child');
 
-$(document).ready(() => {
-    $('.schedule-day__events .metadata').css({
-        'border-top': '1px solid #ccc',
-        'margin-top': '12px',
-        'margin-bottom': '12px',
-        'padding-top': '8px',
-        'padding-bottom': '8px',
-    });
+            if (!first || !last) {
+                return;
+            }
 
-    $('.schedule-day__events .metadata a').css({
-        'font-size': '14px',
-        'font-weight': 'bold',
-    });
+            if (first.length <= 0 || last.length <= 0) {
+                return;
+            }
 
-    $('.schedule-day__events .metadata a:last-child').css({
-        'font-size': '18px',
+            $(item).html(`
+                ${last[0].outerHTML}
+                &mdash;
+                ${first[0].outerHTML}
+            `);
+        });
     });
-
-    $('li.todo .checkbox a').css({
-        'font-size': '14px',
-    });
-});
+})(jQuery);
