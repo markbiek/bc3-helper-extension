@@ -5,6 +5,11 @@
   "version": "0.1",
 
   "description": "Helpful tweaks for Basecamp 3",
+  "applications": {
+    "gecko": {
+        "id": "bc3-helper@janustech.net"
+    }
+  },
 
   "icons": {
     "48": "icons/border-48.png"
