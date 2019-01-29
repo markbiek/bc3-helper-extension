@@ -4,7 +4,8 @@
     "scripts": {
         "build": "webpack --mode production",
         "watch": "webpack --progress --watch",
-        "clean": "rm -rf ./bundle.*"
+        "clean": "rm -rf ./bundle.*",
+        "bundle": "zip ../bc3-helper.zip -r * .[^.]*"
     },
     "dependencies": {
         "@babel/polyfill": "^7.0.0",
