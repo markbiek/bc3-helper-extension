@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Basecamp 3 Helper",
-  "version": "0.1",
+  "version": "0.2",
 
   "description": "Helpful tweaks for Basecamp 3",
   "applications": {
