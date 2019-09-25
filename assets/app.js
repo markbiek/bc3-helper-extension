@@ -1,9 +1,39 @@
 import jQuery from 'jquery';
 import React from 'react';
 import { render } from 'react-dom';
+import useDarkMode from 'use-dark-mode';
+
+const Toggle = ({ checked, onChange }) => (
+    <span className='toggle-control'>
+        <input
+            className='dmcheck'
+            type='checkbox'
+            checked={checked}
+            onChange={onChange}
+            id='dmcheck'
+        />
+        <label htmlFor='dmcheck' />
+    </span>
+);
+
+const DarkModeToggle = () => {
+    const darkMode = useDarkMode(false);
+
+    return (
+        <div className='dark-mode-toggle'>
+            <button type='button' onClick={darkMode.disable}>
+                ☀
+            </button>
+            <Toggle checked={darkMode.value} onChange={darkMode.toggle} />
+            <button type='button' onClick={darkMode.enable}>
+                ☾
+            </button>
+        </div>
+    );
+};
 
 const App = () => {
-    return <p>App</p>;
+    return <DarkModeToggle />;
 };
 
 (function($) {
@@ -32,11 +62,8 @@ const App = () => {
         const el = $('body').prepend(`
             <div id="bc3-dark-mode"></div>
         `);
-        console.log('el');
-        console.log(el);
 
         const app = document.getElementById('bc3-dark-mode');
-        console.log({ app });
         render(<App />, app);
     });
 })(jQuery);
