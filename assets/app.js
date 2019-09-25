@@ -1,4 +1,7 @@
 import jQuery from 'jquery';
+import { render } from 'react-dom';
+
+import App from './react';
 
 (function($) {
     $(document).ready(() => {
@@ -21,5 +24,13 @@ import jQuery from 'jquery';
                 ${first[0].outerHTML}
             `);
         });
+
+        // Setup react app
+        $('body').prepend(`
+            <div id="bc3-dark-mode"></div>
+        `);
+
+        const app = document.getElementById('bc3-dark-mode');
+        render(<App />, app);
     });
 })(jQuery);
