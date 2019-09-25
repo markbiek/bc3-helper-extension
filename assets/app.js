@@ -1,6 +1,6 @@
 import jQuery from 'jquery';
 
-(function ($) {
+(function($) {
     $(document).ready(() => {
         // Reorder project/todo-list titles
         $('.schedule-day__events .metadata').each((idx, item) => {
