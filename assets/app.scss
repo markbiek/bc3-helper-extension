@@ -32,6 +32,7 @@ li.todo {
     }
 }
 
+
 // Dark Mode Controls
 
 #bc3-dark-mode {
@@ -40,6 +41,8 @@ li.todo {
     right: 100px;
     width: 100px;
     z-index: 10000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     .dark-mode-toggle {
         display: flex;
@@ -105,3 +108,66 @@ li.todo {
     }
 }
 
+// Dark Mode styles
+body.dark-mode {
+
+    &.dark-mode,
+    nav,
+    main,
+    section,
+    article,
+    input[type=text],
+    .nav__main,
+    .nav-menu__sheet,
+    .panel,
+    .btn,
+    .prompt,
+    .card__slider,
+    .thread__headline,
+    .todolist__header,
+    .break span,
+    .todolist-group__color,
+    .todolist-group__color .recording-color--white,
+    .help-button__icon {
+        background-color: #10171d;
+        color: #dfdfdf;
+    }
+
+    a.nav_link,
+    .nav__link {
+        color: #dfdfdf;
+    }
+
+    .card__slider {
+        border: 1px solid white;
+    }
+
+    .break--on-background > span {
+        background: transparent;
+    }
+
+    .todo__note, .todo__assignee, .todo__date {
+        color: #f7f1b7;
+    }
+
+    .todolist-group__header .break::after,
+    .break::before,
+    .todolist__drag-handle, 
+    .help-button__icon {
+        display: none;
+    }
+
+    .thread-entry__avatar {
+        background: transparent;
+        box-shadow: none;
+    }
+
+    #bc3-dark-mode {
+        .dark-mode-toggle > button {
+            color: #999;
+            &:last-child {
+                color: lightblue;
+            }
+        }
+    }
+}
