@@ -1,7 +1,10 @@
 import jQuery from 'jquery';
+import React from 'react';
 import { render } from 'react-dom';
 
-import App from './react';
+const App = () => {
+    return <p>App</p>;
+};
 
 (function($) {
     $(document).ready(() => {
@@ -26,11 +29,14 @@ import App from './react';
         });
 
         // Setup react app
-        $('body').prepend(`
+        const el = $('body').prepend(`
             <div id="bc3-dark-mode"></div>
         `);
+        console.log('el');
+        console.log(el);
 
         const app = document.getElementById('bc3-dark-mode');
+        console.log({ app });
         render(<App />, app);
     });
 })(jQuery);
