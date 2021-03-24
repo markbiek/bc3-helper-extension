@@ -1,19 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 const BUILD_DIR = path.resolve(__dirname);
 const APP_DIR = path.resolve(__dirname, 'assets/');
 
 var config = {
     mode: 'development',
-    entry: [
-        `${APP_DIR}/app.js`,
-        `${APP_DIR}/app.scss`
-    ],
+    entry: [`${APP_DIR}/app.js`, `${APP_DIR}/app.scss`],
     output: {
         path: BUILD_DIR,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     devtool: 'source-map',
     module: {
@@ -21,17 +19,13 @@ var config = {
             {
                 test: /\.jsx?$/,
                 include: `${APP_DIR}`,
-                use: ['babel-loader']
+                use: ['babel-loader'],
             },
             {
                 test: /\.(sa|sc|c)ss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader',
-                ],
-            }
-        ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+        ],
     },
     optimization: {
         splitChunks: {
@@ -40,16 +34,20 @@ var config = {
                     name: 'styles',
                     test: /\.css$/,
                     chunks: 'all',
-                    enforce: true
-                }
-            }
-        }
+                    enforce: true,
+                },
+            },
+        },
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'bundle.css',
-        })
-    ]
+        }),
+        new WebpackNotifierPlugin({
+            alwaysNotify: true,
+            skipFirstNotification: true,
+        }),
+    ],
 };
 
 module.exports = config;

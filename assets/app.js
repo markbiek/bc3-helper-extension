@@ -1,6 +1,56 @@
 import jQuery from 'jquery';
+import React from 'react';
+import { render } from 'react-dom';
+import useDarkMode from 'use-dark-mode';
 
-(function ($) {
+const Toggle = ({ checked, onChange }) => (
+    <span className='toggle-control'>
+        <input
+            className='dmcheck'
+            type='checkbox'
+            checked={checked}
+            onChange={onChange}
+            id='dmcheck'
+        />
+        <label htmlFor='dmcheck' />
+    </span>
+);
+
+const DarkModeToggle = () => {
+    const darkMode = useDarkMode(false);
+
+    return (
+        <div className='dark-mode-toggle'>
+            <button type='button' onClick={darkMode.disable}>
+                ☀
+            </button>
+            <Toggle checked={darkMode.value} onChange={darkMode.toggle} />
+            <button type='button' onClick={darkMode.enable}>
+                ☾
+            </button>
+        </div>
+    );
+};
+
+const App = () => {
+    return <DarkModeToggle />;
+};
+
+(function($) {
+    // Setup react app
+    const el = $('body').prepend(`
+        <div id="bc3-dark-mode"></div>
+    `);
+
+    const app = document.getElementById('bc3-dark-mode');
+    render(<App />, app);
+
+    setInterval(() => {
+        if ($('body').hasClass('dark-mode')) {
+            $('.recording-color--white').removeClass('recording-color--white');
+        }
+    }, 300);
+
     $(document).ready(() => {
         // Reorder project/todo-list titles
         $('.schedule-day__events .metadata').each((idx, item) => {
