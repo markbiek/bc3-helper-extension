@@ -2,13 +2,11 @@
     "name": "basecamp3-helper",
     "version": "0.0.2",
     "scripts": {
-        "build": "webpack --mode production && npm run copy-firefox && npm run copy-chrome",
+        "build": "webpack --mode production && npm run copy-firefox",
         "watch": "webpack --progress --watch",
         "clean": "rm -rf ./bundle.*",
         "copy-firefox": "cp ./bundle* ./firefox",
-        "copy-chrome": "cp ./bundle* ./chrome",
-        "bundle-firefox": "npm run build && rm -f ../bc-helper-firefox.zip; zip ../bc3-helper-firefox.zip -rj ./firefox/*",
-        "bundle-chrome": "npm run build && rm -f ../bc-helper-chrome.zip; zip ../bc3-helper-chrome.zip -rj ./chrome/*"
+        "bundle-firefox": "npm run build && rm -f ../bc-helper-firefox.zip; zip ../bc3-helper-firefox.zip -rj ./firefox/*"
     },
     "dependencies": {
         "@babel/polyfill": "^7.0.0",
